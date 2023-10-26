@@ -32,7 +32,7 @@ profile
 
 ProfileReport can be instrumental in familiarizing oneself with the dataset, showcasing correlations within features, null values, duplicates, etc.
 
-#### Feature Selection
+#### Feature Selection/Engineering
 
 **Features that could/should have been dropped:**
 - `age`: High correlation with `age_cat`, redundant.
@@ -44,10 +44,26 @@ ProfileReport can be instrumental in familiarizing oneself with the dataset, sho
 
 After one hot encoding, redundant columns should be discarded to avert overfitting. For instance, the `Female` column is superfluous if `Male` is binary.
 
-Regarding the model, the individual opted for an SVC model without any hyperparameters. Though SVC is an acceptable choice, it's susceptible to overfitting. The dataset would have benefited from scaling. An ideal approach might involve starting with a basic logistic regression model, incorporating cross-validation and hyperparameter tuning. It's then beneficial to juxtapose the results with the SVC model, and potentially other models, to discern which is optimal.
+#### Model Evaluation
+
+SVC is a fine model, but can be prone to overfitting.
+The data should have been scaled. A better solution might
+have been to start with a simple logistic regression model with cross validation and
+hyperparameter tuning, and compare those results with the SVC model (and maybe
+others too) to determine which produces best. With certain models, Feature
+Importance could be implemented to further refine the model.
 
 **Model Summary Feedback:**
-The given summary was vague and lacked depth. There was no mention of model specifics, training details, validation, or the domain's problem context. Highlighting the potential limitations and suggesting areas for improvement are also crucial.
+The model summary simply stated "This is a very good and fair model because it
+is very accurate and predicts very well." This is a terrible summary. It is vague, empty, and shows no real
+supporting metrics or
+evidence. No actual bias checking was done. Without a classification report we
+have no idea of the f1-score, precision, recall, etc. No details on what model was
+used or how it was trained. No mention of validation (as none was used), so we
+have no idea how the model will perform on new data. There is no context on the
+problem domain or why and how certain decisions were made regarding the feature
+engineering. Potential limitations of the model should also be included, as
+should be recommendations or steps for improvement.
 
 #### Feature Importance
 
@@ -56,7 +72,7 @@ behind its determination is proprietary, rendering it non-transparent. It
 raises the question: how can any other feature be deemed valuable when the most
 crucial feature's origin remains enigmatic?
 
-#### Attempted Model Improvement
+### Attempted Model Improvement
 
 After curating and training various models including SVC, Logistic Regression, Random Forest Classifier, XGBoost, and a Keras RNN, with unique feature engineering, I managed to reach an average accuracy of 68% for each model. The models' performances, in terms of f1-score, recall, etc., were also comparable. This outcome may stem from an insufficient dataset, hinting at the benefits a more extensive dataset could offer.
 
