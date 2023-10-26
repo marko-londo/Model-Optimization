@@ -42,6 +42,16 @@ ProfileReport can be instrumental in familiarizing oneself with the dataset, sho
 **Features that could have been considered:**
 - `r_charge_degree`: Potentially relevant when combined with `c_charge_degree`.
 
+***Potential Data Leak:***
+I didn't pick up on this until doing my own analysis, but "is_recid" and
+"two_year_recid" possess nearly identical values. I was originally operating under the
+assumption that "is_recid" meant they had already recommitted a crime prior to
+this evaluation, and that the individual performing this analysis didn't
+drop the feature for that reason. Without further documentation I can't confirm
+this to be the case, however I believe the feature should be left out to err on
+the side of caution. This would also explain the near perfect accuracy of the
+model, as it would imply a data leak.
+
 After one hot encoding, redundant columns should be discarded to avert overfitting. For instance, the `Female` column is superfluous if `Male` is binary.
 
 #### Model Evaluation
