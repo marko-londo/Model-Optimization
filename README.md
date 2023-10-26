@@ -43,20 +43,22 @@ ProfileReport can be instrumental in familiarizing oneself with the dataset, sho
 - `r_charge_degree`: Potentially relevant when combined with `c_charge_degree`.
 
 ***Potential Data Leak:***
-I didn't pick up on this until doing my own analysis, but "is_recid" and
-"two_year_recid" possess nearly identical values. I was originally operating under the
-assumption that "is_recid" meant they had already recommitted a crime prior to
-this evaluation, and that the individual performing this analysis didn't
-drop the feature for that reason. Without further documentation I can't confirm
-this to be the case, however I believe the feature should be left out to err on
-the side of caution. This would also explain the near perfect accuracy of the
-model, as it would imply a data leak.
+Upon closer examination, I noticed that the values of "is_recid" and
+"two_year_recid" are almost identical. Initially, I assumed that "is_recid"
+indicated whether an individual had previously committed a crime before the
+current evaluation. The absence of this feature's removal from the original
+analysis might have been due to this presumption. However, without explicit
+documentation, this remains speculative. To be cautious, I suggest excluding
+the "is_recid" feature. Its presence could potentially explain the model's
+exceptionally high accuracy, hinting at a possible data leakage.
+
+##### One Hot Encoding
 
 After one hot encoding, redundant columns should be discarded to avert overfitting. For instance, the `Female` column is superfluous if `Male` is binary.
 
 #### Model Evaluation
 
-The individual selected an SVC model with default parameters. SVC is a fine model, but can be prone to overfitting.
+The individual opted for an SVC model with default parameters. SVC is a fine model, but can be prone to overfitting.
 The data should have been scaled. A better solution might
 have been to start with a simple logistic regression model with cross validation and
 hyperparameter tuning, and compare those results with the SVC model (and maybe
@@ -64,16 +66,7 @@ others too) to determine which produces best. With certain models, Feature
 Importance could be implemented to further refine the model.
 
 **Model Summary Feedback:**
-The model summary simply stated "This is a very good and fair model because it
-is very accurate and predicts very well." This is a terrible summary. It is vague, empty, and shows no real
-supporting metrics or
-evidence. No actual bias checking was done. Without a classification report we
-have no idea of the f1-score, precision, recall, etc. No details on what model was
-used or how it was trained. No mention of validation (as none was used), so we
-have no idea how the model will perform on new data. There is no context on the
-problem domain or why and how certain decisions were made regarding the feature
-engineering. Potential limitations of the model should also be included, as
-should be recommendations or steps for improvement.
+Model Evaluation Feedback: The provided model summary is significantly lacking in detail and rigor. Simply stating "This is a very good and fair model because it is very accurate and predicts very well" is not only vague, but it lacks the necessary metrics to substantiate such a claim. A comprehensive summary should include metrics such as f1-score, precision, and recall, preferably from a detailed classification report. Additionally, the summary fails to specify which model was employed, its training process, or any information about feature engineering. Critically, the omission of any validation procedure casts doubt on the model's robustness and its ability to generalize to new data. It would be beneficial to provide context on the problem domain and elucidate the rationale behind certain decisions made during the model's development. Furthermore, acknowledging the model's limitations and suggesting areas or methodologies for improvement would enhance the summary's credibility and usefulness.
 
 #### Feature Importance
 
