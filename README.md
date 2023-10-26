@@ -19,8 +19,6 @@ The model leverages the **ProPublica COMPAS dataset**. This dataset encompasses 
 
 ### Findings & Analysis
 
-Research on the features by the original analyst was limited. Some of the findings include:
-
 #### Exploratory Data Analysis 
 
 Evidently not much was done in this regard.
