@@ -7,6 +7,7 @@ In this project, the `model_audit.ipynb` notebook contains a comprehensive revie
 - [Introduction](#introduction)
 - [Dataset Details](#dataset-details)
 - [Findings & Analysis](#findings--analysis)
+- [Attempted Model Improvement](#attempted-model-improvement)
 - [Conclusion](#conclusion)
 
 ### Introduction
@@ -50,7 +51,12 @@ The given summary was vague and lacked depth. There was no mention of model spec
 
 #### Feature Importance
 
-The dominant feature turned out to be `decile_score` (0.4591). The process behind its determination is proprietary, rendering it non-transparent. It raises the question: how can any other feature be deemed valuable when the most crucial feature's origin remains enigmatic?
+The dominant feature turned out to be `decile_score` (0.4591). The process
+behind its determination is proprietary, rendering it non-transparent. It
+raises the question: how can any other feature be deemed valuable when the most
+crucial feature's origin remains enigmatic?
+
+#### Attempted Model Improvement
 
 After curating and training various models including SVC, Logistic Regression, Random Forest Classifier, XGBoost, and a Keras RNN, with unique feature engineering, I managed to reach an average accuracy of 68% for each model. The models' performances, in terms of f1-score, recall, etc., were also comparable. This outcome may stem from an insufficient dataset, hinting at the benefits a more extensive dataset could offer.
 
