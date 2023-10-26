@@ -74,9 +74,7 @@ The primary influencing factor was identified as decile_score, with a significan
 
 ### Attempted Model Improvement
 
-After curating and training various models including SVC, Logistic Regression, Random Forest Classifier, XGBoost, and a Keras RNN, with unique feature engineering, I managed to reach an average accuracy of 68% for each model. The models' performances, in terms of f1-score, recall, etc., were also comparable. This outcome may stem from an insufficient dataset, hinting at the benefits a more extensive dataset could offer.
-
-The [fairlearn library](https://fairlearn.org/) was employed to diminish model bias, but the results were less than optimal.
+After training several machine learning models—including SVC, Logistic Regression, Random Forest Classifier, XGBoost, and a Keras RNN—I applied my own feature engineering to eliminate data leak features. Despite meticulous steps like resampling, scaling, grid searching, and hyperparameter tuning, I achieved an average accuracy of only 68% across all models. Similarly, metrics like the F1 score and recall were consistent with this level of accuracy. I suspect that the limited size of the dataset might be the primary constraint. The [fairlearn library](https://fairlearn.org/) was employed to diminish model bias, but the results were less than optimal.
 
 #### Initial Model Results:
 
