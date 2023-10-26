@@ -56,7 +56,7 @@ After one hot encoding, redundant columns should be discarded to avert overfitti
 
 #### Model Evaluation
 
-SVC is a fine model, but can be prone to overfitting.
+The individual selected an SVC model with default parameters. SVC is a fine model, but can be prone to overfitting.
 The data should have been scaled. A better solution might
 have been to start with a simple logistic regression model with cross validation and
 hyperparameter tuning, and compare those results with the SVC model (and maybe
