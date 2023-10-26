@@ -70,10 +70,7 @@ Model Evaluation Feedback: The provided model summary is significantly lacking i
 
 #### Feature Importance
 
-The dominant feature turned out to be `decile_score` (0.4591). The process
-behind its determination is proprietary, rendering it non-transparent. It
-raises the question: how can any other feature be deemed valuable when the most
-crucial feature's origin remains enigmatic?
+The primary influencing factor was identified as decile_score, with a significance of 0.4591. However, the methodology behind its determination is proprietary, making it opaque. This poses a critical question: if the most influential feature is not transparent, how can we assess the value of any other feature?
 
 ### Attempted Model Improvement
 
